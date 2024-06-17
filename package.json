@@ -29,6 +29,8 @@
   "homepage": "https://github.com/ianwu0915/kanbas-node-server-app#readme",
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^4.19.2"
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mongoose": "^8.4.1"
   }
 }
