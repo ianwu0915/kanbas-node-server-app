@@ -1,35 +1,46 @@
-import Database from "../Database/index.js";
+import * as dao from "./dao.js";
 export default function CourseRoutes(app) {
-  app.get("/api/courses", (req, res) => {
-    const courses = Database.courses;
-    res.send(courses);
-  });
+  const createCourse = async (req, res) => {
+    const course = await dao.createCourse(req.body);
+    res.json(course);
+  };
 
-  app.post("/api/courses", (req, res) => {
-    const course = { ...req.body,
-      _id: new Date().getTime().toString() };
-    Database.courses.push(course);
-    res.send(course);
-  });
+  const findAllCourses = async (req, res) => {
+    const courses = await dao.findAllCourses();
+    res.json(courses);
+  };
 
-  app.delete("/api/courses/:id", (req, res) => {
-    const { id } = req.params;
-    Database.courses = Database.courses.filter((c) => c._id !== id);
-    res.sendStatus(204);
-  });
+  const findCourseById = async (req, res) => {
+    const course = await dao.findCourseById(req.params.courseId);
+    res.json(course);
+  };
 
-  app.put("/api/courses/:id", (req, res) => {
-    const { id } = req.params;
-    const course = req.body;
-    Database.courses = Database.courses.map((c) =>
-      c._id === id ? { ...c, ...course } : c
-    );
-    res.sendStatus(204);
-  });
+  const findCourseByName = async (req, res) => {
+    const course = await dao.findCourseByName(req.params.name);
+    res.json(course);
+  };
 
+  const updateCourse = async (req, res) => {
+    console.log("updateCourse");
+    console.log("new course is:", req.body)
+    const courseId  = req.body._id
+    console.log("id is:", courseId);
+    const status = await dao.updateCourse(courseId, req.body);
+    console.log("status is:", status);
+    res.json(status);
+  };
 
+  const deleteCourse = async (req, res) => {
+    const course = await dao.deleteCourse(req.params.courseId);
+    res.json(200);
+  };
 
-
+  app.get("/api/courses", findAllCourses);
+  app.post("/api/courses", createCourse);
+  app.get("/api/courses/:courseId", findCourseById);
+  app.get("/api/courses/:name", findCourseByName);
+  app.put("/api/courses/:courseId", updateCourse);
+  app.delete("/api/courses/:courseId", deleteCourse);
 
 }
 
