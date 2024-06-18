@@ -25,7 +25,6 @@ const moduleSchema = new mongoose.Schema({
   },
   description: {
     type: String,
-    required: true,
   },
   course: {
     type: String,
