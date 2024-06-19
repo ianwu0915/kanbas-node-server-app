@@ -60,6 +60,7 @@ export default function UserRoutes(app) {
     if (currentUser) {
       req.session["currentUser"] = currentUser;
       res.json(currentUser);
+      // res.sendStatus(200)
     } else {
       res.status(401).json({ message: "Unable to login. Try again later." });
     }
@@ -82,11 +83,17 @@ export default function UserRoutes(app) {
     res.json(currentUser);
   };
 
-
+  const enrollCourse = async (req, res) => {
+    const userId = req.params.userId;
+    console.log(userId);
+    const courses = await dao.findCoursesByUser(userId);
+    res.json(courses);
+  };
 
   app.post("/api/users", createUser);
   app.get("/api/users", findAllUsers);
   app.get("/api/users/:userId", findUserById);
+  app.get("/api/users/:userId/courses", enrollCourse);
   app.put("/api/users/:userId", updateUser);
   app.delete("/api/users/:userId", deleteUser);
   app.post("/api/users/signup", signup);

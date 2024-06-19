@@ -1,4 +1,12 @@
 import mongoose from "mongoose";
+const Schema = mongoose.Schema;
+
+const enrolledCoursesSchema = new mongoose.Schema({
+  "courseId": {type: String, required: true}, 
+  "courseName": {type: String, required: true},
+  "enrolledDate": {type: Date, required: true}, }
+);
+
 const userSchema = new mongoose.Schema({
     username: { type: String, required: true, unique: true },
     password: { type: String, required: true },
@@ -15,6 +23,7 @@ const userSchema = new mongoose.Schema({
     section: String,
     lastActivity: Date,
     totalActivity: String,
+    enrolledCourses: [enrolledCoursesSchema],
   },
   { collection: "users" }
 );
