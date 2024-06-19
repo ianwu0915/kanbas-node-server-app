@@ -83,23 +83,30 @@ export default function UserRoutes(app) {
     res.json(currentUser);
   };
 
-  const enrollCourse = async (req, res) => {
+  const findEnrolledCourses = async (req, res) => {
     const userId = req.params.userId;
     console.log(userId);
     const courses = await dao.findCoursesByUser(userId);
     res.json(courses);
   };
 
+  const registerCourse = async (req, res) => {
+    const { userId, courseId } = req.params;
+    const status = await dao.RegisterCourse(userId, courseId);
+    res.json(status);
+  }
+
   app.post("/api/users", createUser);
   app.get("/api/users", findAllUsers);
   app.get("/api/users/:userId", findUserById);
-  app.get("/api/users/:userId/courses", enrollCourse);
+  app.get("/api/users/:userId/courses", findEnrolledCourses);
   app.put("/api/users/:userId", updateUser);
   app.delete("/api/users/:userId", deleteUser);
   app.post("/api/users/signup", signup);
   app.post("/api/users/signin", signin);
   app.post("/api/users/signout", signout);
   app.post("/api/users/profile", profile);
+  app.post("/api/users/:userId/register/:courseId", registerCourse);
 }
 
 // Routes are the entry points to the application. The routes are responsible for parsing the request, calling the appropriate DAO function, and sending the response back to the client. The routes are the glue between the client and the server

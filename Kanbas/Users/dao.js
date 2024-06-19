@@ -42,6 +42,34 @@ export const findCoursesByUser = async (userId) => {
   }
 }
 
+export const RegisterCourse = async (userId, courseId) => {
+  try {
+    const user = await model.findById(userId);
+    if (!user) {
+      throw new Error('User not found');
+    }
+
+    const course = await courseModel.findById(courseId);
+    if (!course) {
+      throw new Error('Course not found');
+    }
+
+    console.log("course name: ", course.name);
+
+    user.enrolledCourses.push({
+      courseId: courseId,
+      courseName: course.name,
+      enrolledDate: new Date()
+    });
+
+    await user.save();
+    return user;
+  } catch (error) {
+    throw new Error('Error registering course for user: ' + error.message);
+  }
+}
+
+
 //DAOs implement an interface between an application and the low level database access, providing a high level API to the rest of the application hiding the details and idiosyncrasies of using a particular database vendor. 
 // implements this encapsulation and abstraction principle by grouping data access by data type or collection. The following Users/dao.js implements various CRUD operations for the users collection written in terms of the low level Mongoose model operations.
 // The DAOs are used by the routes to implement the business logic. The routes are the entry points to the application and the DAOs are the exit points to the database. The routes are responsible for parsing the request, calling the appropriate DAO function, and sending the response back to the client.
