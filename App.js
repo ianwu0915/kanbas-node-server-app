@@ -10,6 +10,7 @@ import HelloRoutes from "./Hello.js";
 import CourseRoutes from "./Kanbas/Courses/routes.js";
 import ModuleRoutes from "./Kanbas/Modules/routes.js";
 import AssignmentRoutes from "./Kanbas/Assignments/route.js";
+import QuizzesRoutes from "./Kanbas/Quizzes/routes.js";
 
 const app = express();
 const CONNECTION_STRING =
@@ -46,5 +47,6 @@ HelloRoutes(app);
 CourseRoutes(app);
 ModuleRoutes(app);
 AssignmentRoutes(app);
+QuizzesRoutes(app);
 Lab5(app);
 app.listen(4000);
