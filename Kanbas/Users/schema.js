@@ -2,8 +2,8 @@ import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 
 const enrolledCoursesSchema = new mongoose.Schema({
-  "courseId": {type: String, required: true}, 
-  "courseName": {type: String, required: true},
+  "courseId": {type: String, required: true, unique: true}, 
+  "courseName": {type: String, required: true, unique: true},
   "enrolledDate": {type: Date, required: true}, }
 );
 

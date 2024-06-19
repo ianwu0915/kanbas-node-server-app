@@ -66,7 +66,6 @@ export default function UserRoutes(app) {
     }
   };
 
-
   const signout = (req, res) => {
     // Destroy the session by clearing the cookie
     req.session.destroy();
@@ -92,9 +91,9 @@ export default function UserRoutes(app) {
 
   const registerCourse = async (req, res) => {
     const { userId, courseId } = req.params;
-    const status = await dao.RegisterCourse(userId, courseId);
+    const status = await dao.studentRegisterCourse(userId, courseId);
     res.json(status);
-  }
+  };
 
   app.post("/api/users", createUser);
   app.get("/api/users", findAllUsers);
