@@ -8,4 +8,11 @@ export default function QuizRoutes(app) {
         res.json(quizzes);
     });
 
+    app.get("/api/quizzes/:id", async (req, res) => {
+        const id = req.params.id;
+        console.log(`Getting quiz with id ${id}`);
+        const quiz = await dao.getQuizById(id);
+        res.json(quiz);
+    });
+
 }

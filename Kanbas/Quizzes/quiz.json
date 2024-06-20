@@ -1,9 +1,10 @@
 [
     {
+        "name": "Q1",
         "courseNumber": "RS101",
         "quizType": "Graded Quiz",
         "points": 100,
-        "assignmentGroup": "Exams",
+        "assignmentGroup": "Quizzes",
         "shuffleAnswers": true,
         "timeLimit": 30,
         "multipleAttempts": false,
@@ -17,11 +18,11 @@
         "availableDate": "2024-07-01",
         "untilDate": "2024-08-15"
     },
-    {
+    {   "name": "Exam1",
         "courseNumber": "RS101",
         "quizType": "Graded Quiz",
         "points": 10,
-        "assignmentGroup": "Assignments",
+        "assignmentGroup": "Exams",
         "shuffleAnswers": true,
         "timeLimit": 20,
         "multipleAttempts": true,
@@ -35,7 +36,7 @@
         "availableDate": "2024-07-01",
         "untilDate": "2024-08-15"
     },
-    {
+    {   "name": "Final Project",
         "courseNumber": "RS101",
         "quizType": "Graded Quiz",
         "points": 100,
@@ -53,11 +54,11 @@
         "availableDate": "2024-07-01",
         "untilDate": "2024-08-15"
     },
-    {
+    {   "name": "Q1",
         "courseNumber": "RS102",
         "quizType": "Graded Quiz",
         "points": 100,
-        "assignmentGroup": "Exams",
+        "assignmentGroup": "Quizzes",
         "shuffleAnswers": true,
         "timeLimit": 30,
         "multipleAttempts": false,
@@ -71,11 +72,11 @@
         "availableDate": "2024-07-01",
         "untilDate": "2024-08-15"
     },
-    {
+    {   "name": "Exam1",
         "courseNumber": "RS102",
         "quizType": "Graded Quiz",
         "points": 5,
-        "assignmentGroup": "Assignments",
+        "assignmentGroup": "Exams",
         "shuffleAnswers": true,
         "timeLimit": 20,
         "multipleAttempts": true,
@@ -89,7 +90,7 @@
         "availableDate": "2024-07-01",
         "untilDate": "2024-08-15"
     },
-    {
+    {   "name": "Final Project",
         "courseNumber": "RS102",
         "quizType": "Graded Quiz",
         "points": 15,
@@ -107,11 +108,11 @@
         "availableDate": "2024-07-01",
         "untilDate": "2024-08-15"
     },
-    {
+    {   "name": "Q1",
         "courseNumber": "RS103",
         "quizType": "Graded Quiz",
         "points": 100,
-        "assignmentGroup": "Exams",
+        "assignmentGroup": "Quizzes",
         "shuffleAnswers": true,
         "timeLimit": 30,
         "multipleAttempts": false,
@@ -125,11 +126,11 @@
         "availableDate": "2024-07-01",
         "untilDate": "2024-08-15"
     },
-    {
+    {   "name": "Exam1",
         "courseNumber": "RS103",
         "quizType": "Graded Quiz",
         "points": 5,
-        "assignmentGroup": "Assignments",
+        "assignmentGroup": "Exams",
         "shuffleAnswers": true,
         "timeLimit": 20,
         "multipleAttempts": true,
@@ -143,7 +144,7 @@
         "availableDate": "2024-07-01",
         "untilDate": "2024-08-15"
     },
-    {
+    {   "name": "Final Project",
         "courseNumber": "RS103",
         "quizType": "Graded Quiz",
         "points": 100,
