@@ -10,6 +10,11 @@ const quizSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+
+    description: {
+        type: String,
+        default: ''
+    },
     quizType: {
         type: String,
         enum: ['Graded Quiz', 'Practice Quiz', 'Graded Survey', 'Ungraded Survey'],
@@ -72,7 +77,14 @@ const quizSchema = new mongoose.Schema({
     untilDate: {
         type: Date,
         required: true
-    }
+    },
+
+    published: {
+        type: Boolean,
+        default: false
+    },
+
+
 }, { collection: 'quizzes'});
 
 export default quizSchema;
