@@ -11,6 +11,8 @@ import CourseRoutes from "./Kanbas/Courses/routes.js";
 import ModuleRoutes from "./Kanbas/Modules/routes.js";
 import AssignmentRoutes from "./Kanbas/Assignments/route.js";
 import QuizzesRoutes from "./Kanbas/Quizzes/routes.js";
+import QuestionRoutes from "./Kanbas/Quizzes/Questions/routes.js";
+import AnswersRoutes from "./Kanbas/Quizzes/Answers/routes.js";
 
 const app = express();
 const CONNECTION_STRING =
@@ -48,5 +50,8 @@ CourseRoutes(app);
 ModuleRoutes(app);
 AssignmentRoutes(app);
 QuizzesRoutes(app);
+QuestionRoutes(app);
+AnswersRoutes(app);
+
 Lab5(app);
 app.listen(4000);
