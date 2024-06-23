@@ -1,7 +1,7 @@
 import * as dao from "./dao.js";
 
 export default function AnswersRoutes(app) {
-    app.get("/api/answers/:quizId/:studentId", async (req, res) => {
+    app.get("/api/:quizId/answers/:studentId", async (req, res) => {
         const quizId = req.params.quizId;
         const studentId = req.params.studentId;
         console.log(`Getting all answers for quiz ${quizId} and student ${studentId}`);

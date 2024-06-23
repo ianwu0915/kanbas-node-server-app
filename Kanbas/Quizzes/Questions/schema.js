@@ -7,11 +7,11 @@ const questionSchema = new mongoose.Schema(
     },
     title: {
       type: String,
-      required: true,
+      // required: true,
     },
     type: {
       type: String,
-      enum: ["Multiple Choice", "True/False", "Fill in the Blank"],
+      enum: ["Multiple Choice", "True/False", "Fill In the Blank"],
       default: "Multiple Choice",
     },
     points: {
@@ -24,7 +24,7 @@ const questionSchema = new mongoose.Schema(
       required: true,
     },
     choices: {
-      type: [String],
+      type: [{ text: String, correct: Boolean }],
       required: true,
     },
     correctAnswer: {
